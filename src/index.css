@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+/* Same palette as Alma: warm whites, orange, red and light blue. */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-paper: #fffaf6;
+  --color-ink: #1f1411;
+  --color-muted: #7a6a63;
+  --color-line: #f1e4dc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
