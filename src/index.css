@@ -1,12 +1,14 @@
 @import 'tailwindcss';
 
-/* Same palette as Alma: warm whites, orange, red and light blue. */
+/* Warm paper, orange, red and light blue, plus a handwritten face for notes and labels. */
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-hand: 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive;
   --color-paper: #fffaf6;
   --color-ink: #1f1411;
   --color-muted: #7a6a63;
   --color-line: #f1e4dc;
+  --color-subtle: #f0f7fd;
 }
 
 html {
@@ -18,4 +20,21 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #fdba74;
+  color: var(--color-ink);
+}
+
+/* Paper grain over the whole page. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
