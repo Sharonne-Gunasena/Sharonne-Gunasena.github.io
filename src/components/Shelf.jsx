@@ -58,8 +58,8 @@ function TiltCard({ project: p, index, featured }) {
       </span>
 
       <div className={`relative flex items-end overflow-hidden rounded-2xl bg-linear-to-br p-5 ${p.accent} ${featured ? 'h-44 md:h-72' : 'h-44'}`}>
-        <span className="absolute -right-6 -bottom-10 text-[10rem] leading-none font-semibold text-white/20 select-none md:text-[14rem]">{p.name[0]}</span>
-        <span className="font-hand text-xl text-white/90">0{index + 1} / project</span>
+        <span aria-hidden className="absolute -right-6 -bottom-10 text-[10rem] leading-none font-semibold text-white/20 select-none md:text-[14rem]">{p.name[0]}</span>
+        <span aria-hidden className="font-hand text-xl text-white">0{index + 1} / project</span>
       </div>
 
       <div>

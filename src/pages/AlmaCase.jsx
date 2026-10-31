@@ -65,8 +65,8 @@ const BUGS = [
 ];
 
 const STATS = [
-  { to: 66, label: 'automated tests' },
-  { to: 7, label: 'database migrations, each with row-level security' },
+  { to: 118, label: 'automated tests' },
+  { to: 8, label: 'database migrations, each with row-level security' },
   { to: 5, label: 'product areas: planner, study, modules, chat, workspaces' },
 ];
 
@@ -76,7 +76,7 @@ export default function AlmaCase() {
   return (
     <>
       <Nav />
-      <main className="mx-auto max-w-6xl px-5 pb-10 lg:px-10">
+      <main id="main" tabIndex={-1} className="mx-auto max-w-6xl px-5 pb-10 outline-none lg:px-10">
         <a href="#/" className="inline-block py-3 text-sm text-muted no-underline hover:text-ink">
           ← all projects
         </a>
@@ -92,7 +92,7 @@ export default function AlmaCase() {
             A study platform for university students. It plans around the real timetable, turns lecture slides into flashcards, and lets classmates share material for each module.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={ALMA_URL} target="_blank" rel="noreferrer" className="inline-block rounded-full bg-linear-to-br from-orange-500 to-red-500 px-6 py-3 font-medium text-white no-underline shadow-lg shadow-orange-500/30">
+            <a href={ALMA_URL} target="_blank" rel="noreferrer" className="inline-block rounded-full bg-linear-to-br from-orange-700 to-red-600 px-6 py-3 font-medium text-white no-underline shadow-lg shadow-orange-500/30 hover:from-orange-800 hover:to-red-700">
               Open Alma
             </a>
             <a href={ALMA_REPO} target="_blank" rel="noreferrer" className="inline-block rounded-full border border-line bg-card px-6 py-3 font-medium text-ink no-underline hover:border-orange-300">

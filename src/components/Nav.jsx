@@ -2,10 +2,22 @@
 // a soft fade underneath replaces a hard divider.
 export default function Nav() {
   return (
+    <>
+      {/* Skip link for keyboard users. It focuses <main> directly, because a #main href would change the hash route. */}
+      <a
+        href="#main"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('main')?.focus();
+        }}
+        className="sr-only z-50 rounded-full bg-card px-4 py-2 text-sm font-medium text-ink shadow-lg focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+      >
+        Skip to content
+      </a>
     <header className="sticky top-0 z-40 bg-paper/80 backdrop-blur-md after:pointer-events-none after:absolute after:inset-x-0 after:top-full after:h-4 after:bg-linear-to-b after:from-paper/80 after:to-transparent">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 lg:px-10">
         <a href="#/" className="flex items-center gap-3 no-underline">
-          <span className="grid size-10 place-items-center rounded-full bg-linear-to-br from-orange-500 to-red-500 font-hand text-xl font-semibold text-white">SG</span>
+          <span className="grid size-10 place-items-center rounded-full bg-linear-to-br from-orange-700 to-red-600 font-hand text-xl font-semibold text-white">SG</span>
           <span className="hidden font-semibold tracking-tight text-ink sm:inline">Sharonne Gunasena</span>
         </a>
         <nav className="flex items-center gap-2 text-sm">
@@ -16,6 +28,7 @@ export default function Nav() {
         </nav>
       </div>
     </header>
+    </>
   );
 }
 

@@ -20,7 +20,8 @@ export default function CountUp({ to }) {
 
   return (
     <span ref={ref} className="tabular-nums">
-      {n}
+      <span aria-hidden>{n}</span>
+      <span className="sr-only">{to}</span>
     </span>
   );
 }

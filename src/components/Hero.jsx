@@ -93,7 +93,7 @@ export default function Hero() {
               <Magnetic>
                 <a
                   href="#/alma"
-                  className="inline-block rounded-full bg-linear-to-br from-orange-500 to-red-500 px-6 py-3 font-medium text-white no-underline shadow-lg shadow-orange-500/30 hover:from-orange-400 hover:to-red-400"
+                  className="inline-block rounded-full bg-linear-to-br from-orange-700 to-red-600 px-6 py-3 font-medium text-white no-underline shadow-lg shadow-orange-500/30 hover:from-orange-800 hover:to-red-700"
                 >
                   See the case study
                 </a>
@@ -210,7 +210,7 @@ function Board({ progress }) {
           <span className="size-3 rounded bg-sky-100 ring-1 ring-sky-300 dark:bg-sky-500/20 dark:ring-sky-500/40" /> Classes
         </span>
         <span className="flex items-center gap-2">
-          <span className="size-3 rounded bg-linear-to-br from-orange-400 to-red-500" /> Study notes
+          <span className="size-3 rounded bg-linear-to-br from-orange-700 to-red-600" /> Study notes
         </span>
       </div>
     </div>
@@ -226,7 +226,7 @@ function Note({ progress, at, tilt, style, children }) {
 
   return (
     <motion.div
-      className="absolute inset-x-1 rounded-lg bg-linear-to-br from-orange-400 to-red-500 px-2 py-1 text-xs leading-tight font-medium text-white shadow-md shadow-orange-500/30"
+      className="absolute inset-x-1 rounded-lg bg-linear-to-br from-orange-700 to-red-600 px-2 py-1 text-xs leading-tight font-medium text-white shadow-md shadow-orange-500/30"
       style={{ ...style, opacity: landed ? 1 : opacity, y: landed ? 0 : y, rotate: tilt }}
     >
       <span className="pointer-events-none absolute -top-2 left-1/2 h-3.5 w-10 -translate-x-1/2 -rotate-3 rounded-sm bg-sky-200/80" />

@@ -9,6 +9,6 @@ export const projects = [
     summary: 'A study platform for university students: timetable-aware planning, flashcards from lecture slides and shared module hubs.',
     tags: ['React', 'Supabase', 'Yjs', 'Tiptap', 'Tailwind'],
     href: '#/alma',
-    accent: 'from-orange-400 via-orange-500 to-red-500',
+    accent: 'from-orange-600 via-orange-700 to-red-600',
   },
 ];
