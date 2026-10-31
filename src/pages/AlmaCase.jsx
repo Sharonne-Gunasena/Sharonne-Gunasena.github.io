@@ -3,7 +3,6 @@ import Nav from '../components/Nav.jsx';
 import Footer from '../components/Footer.jsx';
 import LiveDemo from '../components/LiveDemo.jsx';
 import CountUp from '../components/CountUp.jsx';
-import Magnetic from '../components/Magnetic.jsx';
 
 const ALMA_URL = 'https://sharonne-gunasena.github.io/Alma/';
 const ALMA_REPO = 'https://github.com/Sharonne-Gunasena/Alma';
@@ -78,12 +77,12 @@ export default function AlmaCase() {
     <>
       <Nav />
       <main className="mx-auto max-w-6xl px-5 pb-10 lg:px-10">
-        <a href="#/" className="inline-block text-sm text-muted no-underline hover:text-ink">
+        <a href="#/" className="inline-block py-3 text-sm text-muted no-underline hover:text-ink">
           ← all projects
         </a>
 
         <header className="mt-10 max-w-4xl">
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-hand text-2xl text-orange-600">
+          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-hand text-3xl text-orange-600">
             case study · live now
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className="mt-3 text-7xl leading-none font-semibold tracking-tighter sm:text-9xl">
@@ -93,16 +92,12 @@ export default function AlmaCase() {
             A study platform for university students. It plans around the real timetable, turns lecture slides into flashcards, and lets classmates share material for each module.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Magnetic>
-              <a href={ALMA_URL} target="_blank" rel="noreferrer" className="inline-block rounded-full bg-linear-to-br from-orange-500 to-red-500 px-6 py-3 font-medium text-white no-underline shadow-lg shadow-orange-500/30">
-                Open Alma
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a href={ALMA_REPO} target="_blank" rel="noreferrer" className="inline-block rounded-full border border-line bg-white px-6 py-3 font-medium text-ink no-underline hover:border-orange-300">
-                View the code
-              </a>
-            </Magnetic>
+            <a href={ALMA_URL} target="_blank" rel="noreferrer" className="inline-block rounded-full bg-linear-to-br from-orange-500 to-red-500 px-6 py-3 font-medium text-white no-underline shadow-lg shadow-orange-500/30">
+              Open Alma
+            </a>
+            <a href={ALMA_REPO} target="_blank" rel="noreferrer" className="inline-block rounded-full border border-line bg-card px-6 py-3 font-medium text-ink no-underline hover:border-orange-300">
+              View the code
+            </a>
           </div>
         </header>
 
@@ -113,7 +108,7 @@ export default function AlmaCase() {
                 <button
                   key={s.id}
                   type="button"
-                  onClick={() => document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                  onClick={() => document.getElementById(s.id)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })}
                   className="w-fit text-left transition-colors hover:text-orange-600"
                 >
                   {s.label}
@@ -132,8 +127,8 @@ export default function AlmaCase() {
             <Section id="features" eyebrow="What it does" title="One place for the whole semester">
               <div className="grid gap-5 md:grid-cols-2">
                 {FEATURES.map((f) => (
-                  <div key={f.title} className="rounded-3xl border border-line bg-white p-6 transition-transform hover:-translate-y-1">
-                    <span className="font-hand text-2xl text-orange-500">{f.mark}</span>
+                  <div key={f.title} className="rounded-3xl border border-line bg-card p-6">
+                    <span className="font-hand text-3xl text-orange-500">{f.mark}</span>
                     <h3 className="mt-2 text-xl font-semibold">{f.title}</h3>
                     <p className="mt-2 text-sm text-muted">{f.body}</p>
                   </div>
@@ -152,14 +147,14 @@ export default function AlmaCase() {
             <Section id="numbers" eyebrow="By the numbers" title="Built to be checked">
               <dl className="grid gap-5 sm:grid-cols-3">
                 {STATS.map((s) => (
-                  <div key={s.label} className="rounded-3xl border border-line bg-white p-6">
+                  <div key={s.label} className="rounded-3xl border border-line bg-card p-6">
                     <dt className="text-sm text-muted">{s.label}</dt>
                     <dd className="mt-2 text-6xl font-semibold tracking-tight text-orange-600">
                       <CountUp to={s.to} />
                     </dd>
                   </div>
                 ))}
-                <div className="rounded-3xl border border-line bg-white p-6">
+                <div className="rounded-3xl border border-line bg-card p-6">
                   <dt className="text-sm text-muted">deploys</dt>
                   <dd className="mt-2 text-6xl font-semibold tracking-tight text-orange-600">Auto</dd>
                   <p className="mt-1 text-sm text-muted">every push to main</p>
@@ -170,7 +165,7 @@ export default function AlmaCase() {
             <Section id="stack" eyebrow="Stack" title="What it's built with">
               <div className="flex flex-wrap gap-3">
                 {STACK.map((s, i) => (
-                  <span key={s} className="rounded-full bg-white px-4 py-2 text-sm text-ink ring-1 ring-line" style={{ transform: `rotate(${(i % 3) - 1}deg)` }}>
+                  <span key={s} className="rounded-full bg-card px-4 py-2 text-sm text-ink ring-1 ring-line" style={{ transform: `rotate(${(i % 3) - 1}deg)` }}>
                     {s}
                   </span>
                 ))}
@@ -192,7 +187,7 @@ export default function AlmaCase() {
 function Section({ id, eyebrow, title, children }) {
   return (
     <section id={id} className="scroll-mt-28 pt-20 first:pt-0">
-      <p className="font-hand text-2xl text-orange-600">{eyebrow}</p>
+      <p className="font-hand text-3xl text-orange-600">{eyebrow}</p>
       <h2 className="mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h2>
       <div className="mt-8">{children}</div>
     </section>
@@ -202,20 +197,20 @@ function Section({ id, eyebrow, title, children }) {
 // A bug report: ticket header, the problem, and the fix.
 function Ticket({ bug: b }) {
   return (
-    <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }} className="overflow-hidden rounded-3xl border border-line bg-white">
+    <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }} className="overflow-hidden rounded-3xl border border-line bg-card">
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-subtle px-6 py-3 text-xs">
         <span className="font-mono text-muted">{b.id}</span>
-        <span className="rounded-full bg-red-100 px-2.5 py-0.5 font-medium text-red-700">{b.severity}</span>
-        <span className="font-medium text-emerald-700">fixed</span>
+        <span className="rounded-full bg-red-100 px-2.5 py-0.5 font-medium text-red-700 dark:bg-red-500/15 dark:text-red-300">{b.severity}</span>
+        <span className="font-medium text-emerald-700 dark:text-emerald-400">fixed</span>
       </header>
       <div className="grid gap-6 p-6 md:grid-cols-[1fr_1fr]">
         <div>
           <h3 className="text-xl font-semibold">{b.title}</h3>
           <p className="mt-3 text-sm text-muted">{b.problem}</p>
         </div>
-        <div className="rounded-2xl bg-sky-50 p-5">
-          <p className="font-hand text-xl text-sky-800">what changed</p>
-          <p className="mt-2 text-sm text-sky-950">{b.fix}</p>
+        <div className="rounded-2xl bg-sky-50 p-5 dark:bg-sky-500/10">
+          <p className="font-hand text-2xl text-sky-800 dark:text-sky-300">what changed</p>
+          <p className="mt-2 text-sm text-sky-950 dark:text-sky-100">{b.fix}</p>
         </div>
       </div>
     </motion.article>

@@ -1,18 +1,46 @@
+@import '@fontsource/caveat/400.css';
+@import '@fontsource/caveat/600.css';
 @import 'tailwindcss';
 
-/* Warm paper, orange, red and light blue, plus a handwritten face for notes and labels. */
+/* Warm paper, orange, red and light blue, plus a handwritten face for notes and labels.
+   Caveat is self-hosted so every device gets the same handwriting. */
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-hand: 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive;
-  --color-paper: #fffaf6;
-  --color-ink: #1f1411;
-  --color-muted: #7a6a63;
-  --color-line: #f1e4dc;
-  --color-subtle: #f0f7fd;
+  --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-subtle: var(--subtle);
 }
 
-html {
-  scroll-behavior: smooth;
+/* Light and dark values; components use the tokens above (bg-paper, bg-card, text-ink…). */
+:root {
+  --paper: #fffaf6;
+  --card: #ffffff;
+  --ink: #1f1411;
+  --muted: #7a6a63;
+  --line: #f1e4dc;
+  --subtle: #f0f7fd;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #120d0b;
+    --card: #1c1512;
+    --ink: #f6ece6;
+    --muted: #a8958c;
+    --line: #33261f;
+    --subtle: #16212b;
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -25,7 +53,14 @@ body {
 
 ::selection {
   background: #fdba74;
-  color: var(--color-ink);
+  color: #1f1411;
+}
+
+/* A clear focus ring for keyboard users, everywhere. */
+:focus-visible {
+  outline: 2px solid var(--color-orange-500);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 /* Paper grain over the whole page. */

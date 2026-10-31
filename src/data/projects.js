@@ -12,5 +12,3 @@ export const projects = [
     accent: 'from-orange-400 via-orange-500 to-red-500',
   },
 ];
-
-export const comingSoon = 'More projects are on the way.';
